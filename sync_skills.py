@@ -6,11 +6,14 @@ from pathlib import Path
 
 # Configuration
 OBSIDIAN_DIR = "/Users/seanhorgan/Library/CloudStorage/GoogleDrive-seanhorgan@gmail.com/My Drive/obsidian/personal/Practice of Product"
-SKILLS_DIR = "/Users/seanhorgan/dev/ai-pm/skills"
+GLOBAL_SKILLS_DIR = os.path.expanduser("~/.agent/workflows/product_skills")
+LOCAL_SKILLS_DIR = "/Users/seanhorgan/dev/ai-pm/skills"
 
 def setup_directories():
-    if not os.path.exists(SKILLS_DIR):
-        os.makedirs(SKILLS_DIR)
+    if not os.path.exists(GLOBAL_SKILLS_DIR):
+        os.makedirs(GLOBAL_SKILLS_DIR)
+    if not os.path.exists(LOCAL_SKILLS_DIR):
+        os.makedirs(LOCAL_SKILLS_DIR)
 
 def clean_obsidian_syntax(content: str, filename: str) -> str:
     """
@@ -69,21 +72,23 @@ def sync(dry_run=False):
     setup_directories()
     
     obsidian_files = get_all_md_files(OBSIDIAN_DIR)
-    skills_files = get_all_md_files(SKILLS_DIR)
+    # We use global as the source of truth for existing Agent skills
+    skills_files = get_all_md_files(GLOBAL_SKILLS_DIR)
     
     all_files = set(obsidian_files + skills_files)
     
     for relative_path in all_files:
         obsidian_file = os.path.join(OBSIDIAN_DIR, relative_path)
-        skill_file = os.path.join(SKILLS_DIR, relative_path)
+        global_skill_file = os.path.join(GLOBAL_SKILLS_DIR, relative_path)
+        local_skill_file = os.path.join(LOCAL_SKILLS_DIR, relative_path)
         
         obsidian_exists = os.path.exists(obsidian_file)
-        skill_exists = os.path.exists(skill_file)
+        skill_exists = os.path.exists(global_skill_file)
         
         if obsidian_exists and skill_exists:
-            # File exists in both places. Compare mtime.
+            # File exists in both places. Compare mtime using global.
             obsidian_mtime = os.path.getmtime(obsidian_file)
-            skill_mtime = os.path.getmtime(skill_file)
+            skill_mtime = os.path.getmtime(global_skill_file)
             
             # Allow a small buffer (e.g., 2 seconds) to avoid sync loops
             if abs(obsidian_mtime - skill_mtime) < 2:
@@ -96,16 +101,23 @@ def sync(dry_run=False):
                     with open(obsidian_file, 'r', encoding='utf-8') as f:
                         content = f.read()
                     content = clean_obsidian_syntax(content, os.path.basename(relative_path))
-                    with open(skill_file, 'w', encoding='utf-8') as f:
+                    
+                    # Write to both Global and Local
+                    os.makedirs(os.path.dirname(global_skill_file), exist_ok=True)
+                    with open(global_skill_file, 'w', encoding='utf-8') as f:
                         f.write(content)
-                    # Sync mtime so they match
-                    os.utime(skill_file, (obsidian_mtime, obsidian_mtime))
+                    os.utime(global_skill_file, (obsidian_mtime, obsidian_mtime))
+                    
+                    os.makedirs(os.path.dirname(local_skill_file), exist_ok=True)
+                    with open(local_skill_file, 'w', encoding='utf-8') as f:
+                        f.write(content)
+                    os.utime(local_skill_file, (obsidian_mtime, obsidian_mtime))
                     
             elif skill_mtime > obsidian_mtime:
                 # Skill is newer
                 print(f"Update detected in Agent Skills: {relative_path}")
                 if not dry_run:
-                    with open(skill_file, 'r', encoding='utf-8') as f:
+                    with open(global_skill_file, 'r', encoding='utf-8') as f:
                         content = f.read()
                     content = add_obsidian_syntax(content)
                     with open(obsidian_file, 'w', encoding='utf-8') as f:
@@ -113,19 +125,33 @@ def sync(dry_run=False):
                     # Sync mtime so they match
                     os.utime(obsidian_file, (skill_mtime, skill_mtime))
                     
+                    # Also update local mirror
+                    os.makedirs(os.path.dirname(local_skill_file), exist_ok=True)
+                    with open(local_skill_file, 'w', encoding='utf-8') as f:
+                        with open(global_skill_file, 'r', encoding='utf-8') as gf:
+                            f.write(gf.read())
+                    os.utime(local_skill_file, (skill_mtime, skill_mtime))
+                    
         elif obsidian_exists and not skill_exists:
             # New file in Obsidian
             print(f"New file from Obsidian: {relative_path}")
             if not dry_run:
-                # Ensure directories exist in skills dir
-                os.makedirs(os.path.dirname(skill_file), exist_ok=True)
+                # Ensure directories exist in both skills dirs
+                os.makedirs(os.path.dirname(global_skill_file), exist_ok=True)
+                os.makedirs(os.path.dirname(local_skill_file), exist_ok=True)
+                
                 with open(obsidian_file, 'r', encoding='utf-8') as f:
                     content = f.read()
                 content = clean_obsidian_syntax(content, os.path.basename(relative_path))
-                with open(skill_file, 'w', encoding='utf-8') as f:
+                
+                with open(global_skill_file, 'w', encoding='utf-8') as f:
                     f.write(content)
                 mtime = os.path.getmtime(obsidian_file)
-                os.utime(skill_file, (mtime, mtime))
+                os.utime(global_skill_file, (mtime, mtime))
+                
+                with open(local_skill_file, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                os.utime(local_skill_file, (mtime, mtime))
                 
         elif skill_exists and not obsidian_exists:
             # New file in Skills
@@ -133,13 +159,20 @@ def sync(dry_run=False):
             if not dry_run:
                 # Ensure directories exist in Obsidian dir
                 os.makedirs(os.path.dirname(obsidian_file), exist_ok=True)
-                with open(skill_file, 'r', encoding='utf-8') as f:
+                with open(global_skill_file, 'r', encoding='utf-8') as f:
                     content = f.read()
                 content = add_obsidian_syntax(content)
                 with open(obsidian_file, 'w', encoding='utf-8') as f:
                     f.write(content)
-                mtime = os.path.getmtime(skill_file)
+                mtime = os.path.getmtime(global_skill_file)
                 os.utime(obsidian_file, (mtime, mtime))
+                
+                # Update local mirror
+                os.makedirs(os.path.dirname(local_skill_file), exist_ok=True)
+                with open(local_skill_file, 'w', encoding='utf-8') as f:
+                    with open(global_skill_file, 'r', encoding='utf-8') as gf:
+                        f.write(gf.read())
+                os.utime(local_skill_file, (mtime, mtime))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Bidirectional sync between Obsidian and Agent Skills")

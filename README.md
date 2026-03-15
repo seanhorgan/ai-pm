@@ -26,8 +26,7 @@ To maintain a single source of truth for the human-readable site while providing
 
 ### Where Content Lives
 
-- **Obsidian Vault:** `/Users/seanhorgan/Library/CloudStorage/GoogleDrive-seanhorgan@gmail.com/My Drive/obsidian/personal/Practice of Product`
-- **Agent Skills:** `/Users/seanhorgan/dev/ai-pm/skills/`
+Sean's Practice of Product site is the source of truth for the human-readable site which you can find at https://sean.horgan.net/Practice+of+Product/Practice+of+Product. The agent skills are derived from the site and are stored in the `/skills` directory.
 
 ### How the Sync Works (`sync_skills.py`)
 

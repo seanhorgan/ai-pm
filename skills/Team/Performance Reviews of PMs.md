@@ -23,9 +23,21 @@ You also should think beyond the traditional attributes that make up the PM ladd
 
 ## Do’s and Don’ts
 
-| Do's                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Don'ts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Be **descriptive**, provide **concrete examples** to support your case.<br/>Consider the entirety of your **working relationship**. Review work materials to get a glimpse of employees' entire impact.<br/>Consider both the **“what”** and the **“how”**, referring to specifics in the job role & level.<br/>Offer **constructive criticism** to help improve the employees work product.<br/>Block time on your schedule. Dedicated time without distractions will allow more thorough feedback.<br/>Include examples of when the employee exemplified company values.<br/><br/> | Provide commentary without supporting evidence. <br/>Be vague, or ramble with no clear direction.<br/>Rush. Peer feedback is used to support performance ratings, and calibrate employees across the org. By not spending enough time on your feedback, you could be selling your peer short.<br/>Apply biases. Review the most common forms to check yourself .<br/>Pass judgement on someone based on one occurrence or instance of a concern. Instead look for patterns of behavior or performance.<br/>Relay stories instead of facts about what actually happened. |
+### Do's
+- Be **descriptive**, provide **concrete examples** to support your case.
+- Consider the entirety of your **working relationship**. Review work materials to get a glimpse of employees' entire impact.
+- Consider both the **“what”** and the **“how”**, referring to specifics in the job role & level.
+- Offer **constructive criticism** to help improve the employees' work product.
+- Block time on your schedule. Dedicated time without distractions will allow more thorough feedback.
+- Include examples of when the employee exemplified company values.
+
+### Don'ts
+- Provide commentary without supporting evidence.
+- Be vague, or ramble with no clear direction.
+- Rush. Peer feedback is used to support performance ratings, and calibrate employees across the org. By not spending enough time on your feedback, you could be selling your peer short.
+- Apply biases. Review the most common forms to check yourself.
+- Pass judgement on someone based on one occurrence or instance of a concern. Instead look for patterns of behavior or performance.
+- Relay stories instead of facts about what actually happened.
 
 # Giving Feedback
 

@@ -19,6 +19,8 @@ Common across all docs should be the following sections/headers:
 ## Product Requirements / Launch Docs
 While I don’t love traditional PRDs for many many reasons, some orgs love these documents because they aspire to be the single source of truth & alignment for everything related to the product. Generally this is a set up for failure as most people are looking for different things and a single doc gets too cluttered and unmanageable. Having said that, there are times and places for making changes to templates and you should account for the work to make those changes.
 
+**Philosophical Note: The format is the problem.** As outlined in ["There Is No PRD"](https://momentalos.com/blog/there-is-no-prd/), traditional PRDs force PMs to compress a complex web of context (customer signals, strategic goals, technical constraints) into a lossy, linear narrative that goes stale almost immediately. In the era of AI agents and rapid execution, narrative documents break down. Instead of monolithic PRDs, PMs should focus on capturing product intent as **atomic, interconnected, and queryable pieces of structured context**—the specific *why* behind a constraint or the exact rationale behind a decision. Ensure context is delivered in the format the consumer (human or AI) needs it.
+
 I’ve found Ash Maurya’s Lean Stack to be an enduring model for product discovery & development: [https://leanstack.com/](https://leanstack.com/). This model includes the following elements that should be included in every product brief: 
 
 - Vision. This is a **succinct & simple** statement that describes the future state of your product. Why should it exist?

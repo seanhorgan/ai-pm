@@ -51,3 +51,26 @@ python sync_skills.py
    - Modifying an agent skill in `~/.agent/workflows/product_skills` overwrites the older version in Obsidian.
 2. **Obsidian -> agent (Exporting):** Removes Obsidian-specific syntactic sugar. `[[WikiLinks]]` are converted to standard text or standard markdown links. Images `![[]]` are stripped if they cannot be rendered by standard LLMs.
 3. **Agent Instructions Block:** The sync script automatically injects an `<agent_instructions>` XML block at the top of every file in the `product_skills` directory. This tells the LLM to follow the rubrics precisely, ensuring it adheres to Sean's specific frameworks over its own generic training data.
+
+---
+
+## How to Use These Skills (For Others)
+
+If you have cloned this repository and want to use these PM skills (like the `Product Discovery.md` framework) in your own AI agent environment, you don't need to worry about the Obsidian sync script. You can integrate the `skills` folder directly into your workflow:
+
+### 1. Jetski Integration
+If you use [Jetski](https://github.com/google/jetski) or another Model Context Protocol (MCP) compatible agent, you can expose these skills globally to your agent by adding the local filesystem server to your configuration.
+*   **Via MCP Config:** Copy the provided `mcp_config.example.json` to your `~/.gemini/jetski/mcp_config.json` (or equivalent location), replacing the path with the absolute path to your cloned `ai-pm/skills` directory. 
+*   **Via Symlink:** Alternatively, you can symlink the cloned skills directly into your project: `ln -s /path/to/ai-pm/skills .agent/skills`
+
+### 2. Cursor Integration
+If you use Cursor IDE, you can easily reference these skills when prompting.
+*   **Prompt Referencing:** Mention `@skills/Product Discovery.md` in the chat or composer when you want the AI to follow that specific rubric.
+*   **Global Rules:** You can copy the `<agent_instructions>` block and the relevant domain frameworks from these files directly into your project's `.cursorrules` file if you want them always active.
+
+### 3. Claude.ai / ChatGPT Integration
+If you use web-based LLMs, you can upload these markdown files to give the model persistent knowledge of your PM frameworks.
+*   **Claude Projects:** Upload the `.md` files to the "Knowledge" section of a Claude Project.
+*   **Custom GPTs:** Upload the files to the "Knowledge" section when configuring a custom GPT in OpenAI. 
+
+*(**Note on OpenSpec Compatibility:** Many of the skills generated here, such as the Product Discovery skill, are designed to synthesize their outputs into standardized formats like those laid out by [OpenSpec](https://github.com/Fission-AI/OpenSpec).)*

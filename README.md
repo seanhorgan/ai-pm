@@ -1,75 +1,44 @@
 # Agent Skills for Product Management
 
-This repository contains agent instructions ("skills") that reflect Sean Horgan's Product Management philosophy, codified on his [Practice of Product](https://sean.horgan.net/Practice+of+Product/Practice+of+Product) site.
+This repository contains AI agent instructions ("skills") that reflect core Product Management philosophies. It is designed as a standalone guide that can be easily adopted by product leaders to scale their team's effectiveness using AI. The core concepts are codified from the [Practice of Product](https://sean.horgan.net/Practice+of+Product/Practice+of+Product) site.
 
 ## The Strategy: Core Persona + Domain Skills
 
-Instead of providing an AI agent with a massive "master document" (which dilutes its instruction following), we use a two-tier approach.
+Instead of providing an AI agent with a massive "master document" (which dilutes its instruction following), we use a modular, two-tier approach.
 
 ### 1. The Core Persona
 
-- **File:** `~/.agent/workflows/product_os.md`
-- **Usage:** Provide this to the agent for _almost every_ product management task. By placing it in `~/.agent/workflows/`, AntiGravity reads this file globally for every workspace on your Mac.
-- **Content:** This contains the foundational principles that govern all product thinking (e.g., Wardley Mapping: Pioneers/Settlers/Town Planners, Kent Beck's 3X Explore/Expand/Extract framework, and general communication tone). It also contains a **Skills Index** which the agent uses to autonomously identify and read appropriate domain skills from the `~/.agent/workflows/product_skills/` folder.
+The foundation for all agent interactions.
+
+- **Usage:** Provide this to the agent for _almost every_ product management task. 
+- **Content:** This contains the foundational principles that govern all product thinking (e.g., Wardley Mapping: Pioneers/Settlers/Town Planners, Kent Beck's 3X Explore/Expand/Extract framework, and general communication tone). It also contains a **Skills Index** which the agent uses to autonomously identify and read appropriate domain skills when needed.
 
 ### 2. Domain-Specific Skills
 
-- **Location:** The `~/.agent/workflows/product_skills/` directory.
-- **Usage:** Pull these in on-demand when working on specific tasks (e.g., leveling a PM, structuring an organization, or planning discovery sprints). Because they are in the agent workflows directory, AntiGravity has global access to them.
-- **Content:** These are targeted markdown files synced directly from the "Practice of Product" Obsidian vault. They contain actionable rubrics and frameworks.
+Focused playbooks for specialized work.
 
----
-
-## Bi-Directional Synchronization with Obsidian
-
-To maintain a single source of truth for the human-readable site while providing optimized, actionable instructions for AI agents, we utilize a bi-directional sync script.
-
-### Where Content Lives
-
-Sean's Practice of Product site is the source of truth for the human-readable site which you can find at https://sean.horgan.net/Practice+of+Product/Practice+of+Product. The agent skills are derived from the site and are stored globally in the `~/.agent/workflows/product_skills/` directory.
-
-### How the Sync Works (`sync_skills.py`)
-
-The `sync_skills.py` script ensures that your public site and your agent skills remain in harmony.
-
-To run a dry run (shows changes without saving):
-
-```bash
-python sync_skills.py --dry-run
-```
-
-To execute the sync:
-
-```bash
-python sync_skills.py
-```
-
-### Sync Rules & Conflict Resolution
-
-1. **Source of Truth:** The script uses the file's Last Modified Time (`mtime`) to determine directionality.
-   - Modifying a file in Obsidian overwrites the older version in `~/.agent/workflows/product_skills`.
-   - Modifying an agent skill in `~/.agent/workflows/product_skills` overwrites the older version in Obsidian.
-2. **Obsidian -> agent (Exporting):** Removes Obsidian-specific syntactic sugar. `[[WikiLinks]]` are converted to standard text or standard markdown links. Images `![[]]` are stripped if they cannot be rendered by standard LLMs.
-3. **Agent Instructions Block:** The sync script automatically injects an `<agent_instructions>` XML block at the top of every file in the `product_skills` directory. This tells the LLM to follow the rubrics precisely, ensuring it adheres to Sean's specific frameworks over its own generic training data.
+- **Location:** The `skills/` directory in this repository.
+- **Usage:** Pull these in on-demand when working on specific tasks (e.g., leveling a PM, structuring an organization, or planning discovery sprints). 
+- **Content:** These are targeted markdown files containing actionable rubrics and frameworks.
 
 ---
 
 ## How to Use These Skills (For Others)
 
-If you have cloned this repository and want to use these PM skills (like the `Product Discovery.md` framework) in your own AI agent environment, you don't need to worry about the Obsidian sync script. You can integrate the `skills` folder directly into your workflow:
+If you want to use these PM skills (like the `Product Discovery.md` framework) in your own AI agent environment, you can seamlessly integrate them into your workflow:
 
-### 1. Jetski Integration
-If you use [Jetski](https://github.com/google/jetski) or another Model Context Protocol (MCP) compatible agent, you can expose these skills globally to your agent by adding the local filesystem server to your configuration.
-*   **Via MCP Config:** Copy the provided `mcp_config.example.json` to your `~/.gemini/jetski/mcp_config.json` (or equivalent location), replacing the path with the absolute path to your cloned `ai-pm/skills` directory. 
+### 1. Antigravity Integration
+If you use [Antigravity](https://github.com/google/antigravity) or another Model Context Protocol (MCP) compatible agent, expose these skills globally by adding the local filesystem server to your configuration.
+*   **Via MCP Config:** Copy the provided `mcp_config.example.json` to your `~/.gemini/antigravity/mcp_config.json` (or equivalent location), replacing the path with the absolute path to your cloned `ai-pm/skills` directory. 
 *   **Via Symlink:** Alternatively, you can symlink the cloned skills directly into your project: `ln -s /path/to/ai-pm/skills .agent/skills`
 
 ### 2. Cursor Integration
-If you use Cursor IDE, you can easily reference these skills when prompting.
+If you use Cursor IDE, easily reference these skills when prompting.
 *   **Prompt Referencing:** Mention `@skills/Product Discovery.md` in the chat or composer when you want the AI to follow that specific rubric.
 *   **Global Rules:** You can copy the `<agent_instructions>` block and the relevant domain frameworks from these files directly into your project's `.cursorrules` file if you want them always active.
 
 ### 3. Claude.ai / ChatGPT Integration
-If you use web-based LLMs, you can upload these markdown files to give the model persistent knowledge of your PM frameworks.
+For web-based LLMs, upload these markdown files to give the model persistent knowledge of these PM frameworks.
 *   **Claude Projects:** Upload the `.md` files to the "Knowledge" section of a Claude Project.
 *   **Custom GPTs:** Upload the files to the "Knowledge" section when configuring a custom GPT in OpenAI. 
 

@@ -51,3 +51,18 @@ For 1:1s and team check-ins, I use the following structure
 ## Pro Forma P&L
 
 Even if your product serves the needs of internal users it’s good practice to maintain a P&L statement. This doesn’t need to pass SEC tests, just a simple accounting for revenue, costs that help you answer important product questions like your team’s marginal contribution to the overall company business.
+
+## Team Basics & Rituals (The "House in Order")
+
+Inspired by John Cutler's [TBM 12/52: The Basics](https://cutlefish.substack.com/p/tbm-1252-the-basics), PMs should ensure their team has the following connective tissue and operating rhythms established:
+
+- **Charter and Mission:** Have a team charter and a team mission. Know whose life you're making easier and your operating principles.
+- **Strategy & Models:** Connective tissue between strategy and roadmap. Utilize appropriate models to figure out inputs before bets.
+- **Roadmap & Bets:** An always up-to-date, one-year, suitably detailed roadmap filled with Bets (not just rigid features).
+- **Bet Artifacts:** Every bet should have a one-pager, a research folder, and a learning backlog. Avoid massive monolithic PRDs for work far off in the future.
+- **Bet Metrics & Target Inputs:** Define metrics unique to the bet to understand usage, and ensure the bet targets persistent input metrics that stay stable over time.
+- **Goals:** Establish either bet-specific goals or quarterly OKRs, making goal-setting safe but effective.
+- **Rituals:** 
+  - **Kickoffs:** Well-facilitated kickoffs for every bet.
+  - **Learning Reviews:** Post-bet analysis of impact and key lessons.
+  - **Retrospectives & Continuous Improvement:** Regular reflections on how things are going and small improvement experiments.

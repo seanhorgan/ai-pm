@@ -21,6 +21,8 @@ While I don’t love traditional PRDs for many many reasons, some orgs love thes
 
 **Philosophical Note: The format is the problem.** As outlined in ["There Is No PRD"](https://momentalos.com/blog/there-is-no-prd/), traditional PRDs force PMs to compress a complex web of context (customer signals, strategic goals, technical constraints) into a lossy, linear narrative that goes stale almost immediately. In the era of AI agents and rapid execution, narrative documents break down. Instead of monolithic PRDs, PMs should focus on capturing product intent as **atomic, interconnected, and queryable pieces of structured context**—the specific *why* behind a constraint or the exact rationale behind a decision. Ensure context is delivered in the format the consumer (human or AI) needs it.
 
+**Context Integrity is Critical:** Furthermore, as discussed in ["From GitHub for Product Management — to Something Bigger"](https://momentalos.com/blog/from-github-for-product-management-to-something-bigger/), dumping contradictory documents or stale assumptions onto agents leads to confidently wrong outputs. Product knowledge requires a "GitHub for Product Management" approach: it must be versioned, traceable, and honest. Conflict resolution (flagging when a new decision contradicts a past assumption) is a first-class necessity to ensure agents and humans reason from truth, not just accumulated artifacts.
+
 I’ve found Ash Maurya’s Lean Stack to be an enduring model for product discovery & development: [https://leanstack.com/](https://leanstack.com/). This model includes the following elements that should be included in every product brief: 
 
 - Vision. This is a **succinct & simple** statement that describes the future state of your product. Why should it exist?

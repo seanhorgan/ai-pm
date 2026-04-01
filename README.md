@@ -1,45 +1,66 @@
 # Agent Skills for Product Management
 
-This repository contains AI agent instructions ("skills") that reflect core Product Management philosophies. It is designed as a standalone guide that can be easily adopted by product leaders to scale their team's effectiveness using AI. The core concepts are codified from the [Practice of Product](https://sean.horgan.net/Practice+of+Product/Practice+of+Product) site.
+AI agent instructions ("skills") that reflect core Product Management philosophies, codified from the [Practice of Product](https://sean.horgan.net/Practice+of+Product/Practice+of+Product) framework.
 
-## The Strategy: Core Persona + Domain Skills
+## Architecture
 
-Instead of providing an AI agent with a massive "master document" (which dilutes its instruction following), we use a modular, two-tier approach.
+```
+AGENTS.md              ← Universal AI entry point (start here)
+skills/                ← 13 distilled, AI-executable playbooks
+sync/                  ← Sync tooling for Obsidian vault ↔ repo
+```
 
-### 1. The Core Persona
+**`AGENTS.md`** is the entry point for any AI system. It establishes the PM persona, indexes all skills, and explains how to use them. Point your agent here first.
 
-The foundation for all agent interactions.
+**`skills/`** contains focused, imperative playbooks (20–60 lines each) designed for AI execution — not lengthy essays. Each skill has: when to use it, rubrics/principles, and specific actions the AI should take.
 
-- **Usage:** Provide this to the agent for _almost every_ product management task. 
-- **Content:** This contains the foundational principles that govern all product thinking (e.g., Wardley Mapping: Pioneers/Settlers/Town Planners, Kent Beck's 3X Explore/Expand/Extract framework, and general communication tone). It also contains a **Skills Index** which the agent uses to autonomously identify and read appropriate domain skills when needed.
+### Skills Index
 
-### 2. Domain-Specific Skills
-
-Focused playbooks for specialized work.
-
-- **Location:** The `skills/` directory in this repository.
-- **Usage:** Pull these in on-demand when working on specific tasks (e.g., leveling a PM, structuring an organization, or planning discovery sprints). 
-- **Content:** These are targeted markdown files containing actionable rubrics and frameworks.
+| Skill | Use when |
+|-------|----------|
+| Core PM Persona | Foundation for all PM work — load first |
+| PM Levels & Expectations | Leveling, career ladder, calibration |
+| Leadership | Coaching leadership, team dynamics |
+| Strategic Thinking | Strategy writing, competitive analysis |
+| Product & Design | Discovery, prioritization, PMF |
+| Analytical Thinking | Metrics, structured problem solving |
+| Communication | Presentations, stakeholder alignment |
+| Entrepreneurship | 0→1 products, GTM, pricing |
+| Culture | Team health, organizational values |
+| Strategy Brief | Writing/reviewing strategy documents |
+| PM Ownership | Scope-setting, doc templates, onboarding |
+| Building a PM Team | Org design, hiring, managing PMs |
+| Performance Reviews | Writing reviews, feedback, calibration |
 
 ---
 
-## How to Use These Skills (For Others)
+## How to Use These Skills
 
-If you want to use these PM skills (like the `Product Discovery.md` framework) in your own AI agent environment, you can seamlessly integrate them into your workflow:
+### AGENTS.md auto-discovery (Claude Code, OpenAI Codex, Cursor)
+Clone this repo into your project. These tools auto-discover `AGENTS.md` at the project root — no configuration needed.
 
-### 1. Antigravity Integration
-If you use [Antigravity](https://github.com/google/antigravity) or another Model Context Protocol (MCP) compatible agent, expose these skills globally by adding the local filesystem server to your configuration.
-*   **Via MCP Config:** Copy the provided `mcp_config.example.json` to your `~/.gemini/antigravity/mcp_config.json` (or equivalent location), replacing the path with the absolute path to your cloned `ai-pm/skills` directory. 
-*   **Via Symlink:** Alternatively, you can symlink the cloned skills directly into your project: `ln -s /path/to/ai-pm/skills .agent/skills`
+### MCP filesystem server
+Expose the skills directory to any MCP-compatible agent. Copy `mcp_config.example.json` to your agent's config, replacing the path with your local clone:
 
-### 2. Cursor Integration
-If you use Cursor IDE, easily reference these skills when prompting.
-*   **Prompt Referencing:** Mention `@skills/Product Discovery.md` in the chat or composer when you want the AI to follow that specific rubric.
-*   **Global Rules:** You can copy the `<agent_instructions>` block and the relevant domain frameworks from these files directly into your project's `.cursorrules` file if you want them always active.
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/ai-pm/skills"]
+    }
+  }
+}
+```
 
-### 3. Claude.ai / ChatGPT Integration
-For web-based LLMs, upload these markdown files to give the model persistent knowledge of these PM frameworks.
-*   **Claude Projects:** Upload the `.md` files to the "Knowledge" section of a Claude Project.
-*   **Custom GPTs:** Upload the files to the "Knowledge" section when configuring a custom GPT in OpenAI. 
+### Claude Projects / Gemini / ChatGPT
+Upload `AGENTS.md` plus the relevant skill files to the knowledge or system prompt section.
 
-*(**Note on OpenSpec Compatibility:** Many of the skills generated here, such as the Product Discovery skill, are designed to synthesize their outputs into standardized formats like those laid out by [OpenSpec](https://github.com/Fission-AI/OpenSpec).)*
+### Cursor IDE
+Reference skills inline: `@skills/Product Discovery.md`. Or embed `AGENTS.md` in your `.cursorrules` file.
+
+---
+
+## Source of Truth
+
+These skills are distilled from a private Obsidian vault. The vault contains rich, human-readable essays under `Practice of Product/`; the `skills/` files here are the AI-optimized versions. The `sync/` directory contains tooling for keeping the two in sync.

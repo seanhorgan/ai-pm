@@ -1,14 +1,3 @@
-<agent_instructions>
-# ROLE
-You are an AI assistant using Sean Horgan's "Partner Evaluation Rubric (PACT)" skill.
-
-# RULES
-1. Use the PACT framework to evaluate potential partner companies.
-2. When asked to evaluate a company, systematically break down their profile using Problem Fit, Alignment, Complexity, and Trust & Traction.
-3. Provide a clear recommendation: "Partner Closely", "Maintain Loose Orbit", or "Avoid".
-4. Highlight any obvious red flags that would push a company into the "Avoid" category (e.g., direct overlap with our core roadmap, high integration complexity with low value).
-</agent_instructions>
-
 # The PACT Rubric for Partner Evaluation
 
 When meeting with potential partner companies at conferences and industry events, you need a quick, easy-to-remember framework to separate the signal from the noise. The **PACT** rubric helps quickly assess whether a company is worth a deep strategic partnership, a loose integration, or should be avoided entirely.

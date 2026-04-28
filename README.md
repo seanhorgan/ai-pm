@@ -6,7 +6,7 @@ AI agent instructions ("skills") that reflect core Product Management philosophi
 
 ```
 AGENTS.md              ← Universal AI entry point (start here)
-skills/                ← 13 distilled, AI-executable playbooks
+skills/                ← 14 distilled, AI-executable playbooks
 sync/                  ← Sync tooling for Obsidian vault ↔ repo
 ```
 
@@ -31,6 +31,7 @@ sync/                  ← Sync tooling for Obsidian vault ↔ repo
 | PM Ownership | Scope-setting, doc templates, onboarding |
 | Building a PM Team | Org design, hiring, managing PMs |
 | Performance Reviews | Writing reviews, feedback, calibration |
+| Partner Evaluation | Partner company assessment using PACT rubric |
 
 ---
 

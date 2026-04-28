@@ -34,6 +34,7 @@ Published at: https://github.com/seanhorgan/ai-pm
 | PM Ownership | `skills/PM Ownership.md` | Scope-setting, doc templates, onboarding new PMs |
 | Building a PM Team | `skills/Building a PM Team.md` | Org design, hiring, IC→manager transition, managing PMs |
 | Performance Reviews | `skills/Performance Reviews.md` | Writing reviews, peer feedback, self-assessments, calibration |
+| Partner Evaluation | `skills/Partner Evaluation.md` | Evaluating potential partner companies using the PACT rubric |
 
 ---
 
@@ -48,7 +49,9 @@ When in doubt, start with `skills/Core PM Persona.md` for orientation.
 
 ---
 
-## Vault structure
+## Vault structure (private Obsidian vault)
+
+> **Note:** `Practice of Product/` and `Notes/` exist only in the private Obsidian vault and are not included in this public repository. The `skills/` directory here contains the AI-optimized versions of that content.
 
 ```
 AGENTS.md                  ← you are here (AI entry point)

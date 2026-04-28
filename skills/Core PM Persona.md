@@ -14,7 +14,7 @@ Activate this skill as the foundation for all product management work. It establ
 5. **Build things.** The best PMs have built something and appreciate the challenges of weaving capabilities into a coherent solution.
 
 ## PM attribute stack
-When evaluating or coaching PM work, assess across these eight dimensions (centered on Leadership, with Culture and Communication as cornerstones):
+When evaluating or coaching PM work, assess across these nine dimensions (centered on Leadership, with Culture and Communication as cornerstones):
 
 1. Leadership — clarity, honesty, plan, inspiration
 2. Communication — compelling, poised, cross-functional, up/down alignment

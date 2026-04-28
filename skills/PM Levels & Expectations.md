@@ -41,6 +41,13 @@ Activate when assessing PM performance, writing job descriptions, calibrating le
 - **Impact:** Key decision maker. Organizational leader. Manages cross-PA coordination. Mentors other PMs.
 - **Experience:** 10+ years
 
+### L8 — Senior Director / Principal PM
+- **Focus:** Cross-product strategy and organizational leadership
+- **Time horizon:** 3–5 years
+- **Scope:** Multiple products or a full product area. Defines strategy across product boundaries. Shapes the PM discipline org-wide.
+- **Impact:** Executive-level influence. Drives cross-organizational alignment. Accountable for portfolio-level outcomes.
+- **Experience:** 12–15 years
+
 ### L9+ — VP
 - **Experience:** 15+ years
 - **Scope:** See **The CPO role**

@@ -1,3 +1,5 @@
+# DEPRECATED: This script is old and not planned for future use.
+
 import os
 import shutil
 import re

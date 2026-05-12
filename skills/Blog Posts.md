@@ -33,6 +33,21 @@ When expanding the pitch into a draft, ensure the following elements are present
 5. **Nuance & Critical Caveats:**
    - Explicitly state the limitations of any analogies or models. Explain where principles do *not* apply or how they could be misapplied in a different context.
 
+## Social Media Distribution
+For every drafted post, generate high-impact social media summaries to drive distribution:
+
+1. **Tweet-Length Summary:**
+   - **Constraints:** Maximum 280 characters.
+   - **Content:** Distill the core parallel or key lesson into a single punchy insight.
+   - **Visuals:** Use at most 1-2 subtle, professional emojis (e.g., 🛠️, ⚓, 📊). Avoid "AI slop" (excessive emojis like 🚀, 🧠, 🔥 on every line).
+   - **Call to Action:** Include the direct link to the published post using the slug structure: `https://sean.horgan.net/Notes/<slug>`.
+
+2. **LinkedIn Post:**
+   - **Constraints:** Roughly 2 paragraphs.
+   - **Content:** Set up the problem/context in paragraph one, and deliver the key insights or lessons in paragraph two.
+   - **Visuals:** Keep formatting clean (use simple bullets if necessary), with minimal, professional emojis.
+   - **Call to Action:** End with a natural hook directing the reader to the full article using the slug structure: `https://sean.horgan.net/Notes/<slug>`.
+
 ## Actions
 - **Pitching:** Help the user fill out the "Pitch" checklist first.
 - **Drafting:** For each main point, search both the web (for external sources/citations) and the local vault (for internal cross-references) to enrich the draft.
@@ -41,3 +56,4 @@ When expanding the pitch into a draft, ensure the following elements are present
   2. Internal Obsidian vault links.
   3. A dedicated "Caveat" section highlighting limits of the core analogy.
   4. An "Official Resources" section at the end.
+- **Distribution:** Once the draft is approved, generate the **Tweet-Length** and **LinkedIn** summaries. Ensure they are clean, professional, free of emoji-heavy AI patterns, and include the direct link to the published post on `sean.horgan.net` using the converted note-name slug (spaces converted to hyphens).

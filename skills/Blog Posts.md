@@ -33,6 +33,12 @@ When expanding the pitch into a draft, ensure the following elements are present
 5. **Nuance & Critical Caveats:**
    - Explicitly state the limitations of any analogies or models. Explain where principles do *not* apply or how they could be misapplied in a different context.
 
+6. **AI Collaboration & Disclosure:**
+   - **Disclosure Tag:** If the post was drafted or refined in collaboration with an AI assistant, include the appropriate nested hashtag:
+     - `#ai-assistant/gemini` (for Gemini models)
+     - `#ai-assistant/claude` (for Claude models)
+   - Place the tag at the top of the file right beneath the H1 header, alongside other metadata. This structure ensures the post is cleanly compiled under the parent `#ai-assistant` category.
+
 ## Social Media Distribution
 For every drafted post, generate high-impact social media summaries to drive distribution:
 
@@ -56,4 +62,5 @@ For every drafted post, generate high-impact social media summaries to drive dis
   2. Internal Obsidian vault links.
   3. A dedicated "Caveat" section highlighting limits of the core analogy.
   4. An "Official Resources" section at the end.
+  5. The correct **AI Collaboration tag** (`#ai-assistant/gemini` or `#ai-assistant/claude`) at the top of the note if applicable.
 - **Distribution:** Once the draft is approved, generate the **Tweet-Length** and **LinkedIn** summaries. Ensure they are clean, professional, free of emoji-heavy AI patterns, and include the direct link to the published post on `sean.horgan.net` using the converted note-name slug (spaces converted to hyphens).

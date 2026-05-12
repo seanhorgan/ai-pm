@@ -35,6 +35,7 @@ Published at: https://github.com/seanhorgan/ai-pm
 | Building a PM Team | `skills/Building a PM Team.md` | Org design, hiring, IC→manager transition, managing PMs |
 | Performance Reviews | `skills/Performance Reviews.md` | Writing reviews, peer feedback, self-assessments, calibration |
 | Partner Evaluation | `skills/Partner Evaluation.md` | Evaluating potential partner companies using the PACT rubric |
+| OSS Adoption | `skills/OSS Adoption.md` | Assessing the adoption and health of an open source project on GitHub |
 
 ---
 

@@ -11,17 +11,32 @@
             "id": "d14644cc787a3973",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": ".obsidian/app.json",
-                "bFile": ".obsidian/app.json",
-                "aRef": ""
+                "file": "skills/Strategy Brief.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: app.json  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "Strategy Brief"
+            }
+          },
+          {
+            "id": "083c9d515c6a9817",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "skills/Strategy Cross Examination.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Strategy Cross Examination"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -194,8 +209,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d14644cc787a3973",
+  "active": "083c9d515c6a9817",
   "lastOpenFiles": [
+    "skills/Strategic Thinking.md",
+    "skills/Strategy Brief.md",
+    "skills/Strategy Cross Examination.md",
+    "skills/OSS Adoption.md",
+    "skills/Partner Evaluation.md",
     "skills/Metrics.md",
     "2026-05-21.md",
     "README.md",
